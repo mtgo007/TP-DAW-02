@@ -7,8 +7,8 @@ class Add extends Component {
   render() {
     return (
       <div  className="Add">
-        <Navbar />
-        <FormAdd changeState={this.props.changeState.bind(this)} />
+        <Navbar changeState={this.props.changeState.bind(this)}/>
+        <FormAdd btnText='Cadastrar' changeState={this.props.changeState.bind(this)} />
       </div>
     );
   }

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 class FormAdd extends Component {
 
-  constructor(){
-      super();
+  constructor(props){
+      super(props);
       this.state = {
-          nome:'',
-          email:'',
-          senha:'',
-          endereco:'',
-          telefone:'',
-          tipoUsuario:'Comprador'
+          nome:this.props.user.nome||'',
+          email:this.props.user.email||'',
+          senha:this.props.user.senha||'',
+          endereco:this.props.user.endereco||'',
+          telefone:this.props.user.telefone||'',
+          tipoUsuario:this.props.user.tipoUsuario||'Comprador'
       }
   }
 
@@ -32,6 +32,7 @@ class FormAdd extends Component {
   }
 
   render() {
+    console.log(this.props.user)
     return (
       <div  className="FormAdd mt-5 container jumbotron">
         <div className="form-group">
@@ -62,7 +63,9 @@ class FormAdd extends Component {
               <option >Catador</option>
             </select>
         </div>
-        <button type="submit" className="w-100 btn btn-outline-success" onClick={this.add.bind(this)}>Cadastrar</button>
+        <button type="submit" className="w-100 btn btn-outline-success" onClick={this.add.bind(this)}>
+          {this.props.btnText}
+        </button>
       </div>
     );
   }

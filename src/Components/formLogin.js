@@ -36,7 +36,7 @@ class FormLogin extends Component {
       <div className="container jumbotron mt-5">
           <div className="form-group">
             <p className="text-center">Email</p>
-            <input type="email" class="form-control" id="email"   placeholder="Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
+            <input type="email" className="form-control" id="email"   placeholder="Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
           </div>
           <div className="form-group">
             <p className="text-center">Senha</p>
