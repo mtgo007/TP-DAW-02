@@ -18,7 +18,7 @@ class Login extends Component {
     return (
       <div  className="Login">
         <Navbar changeState={this.props.changeState.bind(this)}/>
-        <FormLogin changeState={this.props.changeState} login={this.login.bind(this)}/>
+        <FormLogin  changeState={this.props.changeState} login={this.login.bind(this)}/>
       </div>
     );
   }

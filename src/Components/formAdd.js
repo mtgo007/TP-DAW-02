@@ -27,7 +27,7 @@ class FormAdd extends Component {
       //mudar o estado
       console.log(user);
       if(user.nome && user.email && user.senha && user.endereco && user.telefone){
-          this.props.changeState(0, undefined);
+          this.props.changeState(0, user);
       }
   }
 

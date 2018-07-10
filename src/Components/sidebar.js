@@ -28,9 +28,9 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div  className="Sidebar" style={{height:'100vh'}}>
-        <div className="container bg-success h-100">
-            <h1 className="text-center text-light pt-2 mb-2">Bem-vindo {this.state.usuario.nome}!</h1>
+      <div  className="Sidebar sidenav padding0" style={{height:'100vh'}}>
+        <div className="container-fluid bg-light h-100">
+            <h1 className="text-center pt-2 mb-5">Bem-vindo {this.state.usuario.nome}!</h1>
             <ul className="list-group bg-success">
                 <li className="list-group-item list-group-item-action  text-center active"
                 onClick={()=>{this.handleState(0)}}
@@ -44,8 +44,10 @@ class Sidebar extends Component {
                 onClick={()=>{this.handleState(2)}}
                 >
                 Notificações</li>
+            </ul>
+            <ul className="list-group bg-success mb-3 footer">
                 <li className="list-group-item list-group-item-action  text-center "
-                onClick={()=>{this.handleState(3)}}
+                onClick={()=>{this.props.changeState(0, undefined)}}
                 >
                 Sair</li>
             </ul>

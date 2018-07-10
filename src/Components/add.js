@@ -8,7 +8,7 @@ class Add extends Component {
     return (
       <div  className="Add">
         <Navbar changeState={this.props.changeState.bind(this)}/>
-        <FormAdd btnText='Cadastrar' changeState={this.props.changeState.bind(this)} />
+        <FormAdd user={{}} btnText='Cadastrar' changeState={this.props.changeState.bind(this)} />
       </div>
     );
   }

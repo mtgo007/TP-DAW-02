@@ -21,12 +21,12 @@ class Logado extends Component {
       console.log('this.props.usuarioLogado')
     return (
       <div  className="Logado" >
-        <div className="row ">
-            <div className="col-3">
-                <Sidebar switchState={this.switchState}  usuarioLogado={this.props.usuarioLogado} />
+        <div  className="row no-gutters">
+            <div  className="col-sm-2">
+                <Sidebar changeState={this.props.changeState} switchState={this.switchState}  usuarioLogado={this.props.usuarioLogado} />
             </div>
-            <div className="col-9">
-                <Dashboard user={this.props.usuarioLogado} state={this.state.atual}/>
+            <div  className="col-sm-10 bg-dark ">
+                <Dashboard  user={this.props.usuarioLogado} state={this.state.atual}/>
             </div> 
         </div>
       </div>
