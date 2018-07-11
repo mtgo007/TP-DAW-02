@@ -26,3 +26,9 @@ body {
   margin:0 auto 10px auto !important;
   display: block;
 }
+.background{
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  width:83.34%;
+  height: 100vh;
+  z-index: -1;
+}
