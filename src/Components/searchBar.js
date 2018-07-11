@@ -9,7 +9,8 @@ class SerachBar extends Component {
         }
     }
 
-    handlesearch(){
+    handlesearch = () => {
+      console.log(this.state.search)
         this.props.search(this.state.search);
     }
 
@@ -21,7 +22,7 @@ class SerachBar extends Component {
             <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-search"></i></span>
           </div>
           <input type="text" value={this.state.search} onChange={
-              (e)=> this.setState({search:e.target.value}, this.handlesearch())} class="form-control" placeholder="Search" aria-label="Large" aria-describedby="inputGroup-sizing-sm"/>
+              (e)=> {this.state.search=e.target.value; this.handlesearch()}} class="form-control" placeholder="Search" aria-label="Large" aria-describedby="inputGroup-sizing-sm"/>
         </div>
       </div>
     );
