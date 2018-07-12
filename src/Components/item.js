@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
+
 class Item extends Component {
+
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
@@ -12,8 +17,8 @@ class Item extends Component {
                 <p>Estação Fornecedora: {this.props.item.fornecedor}</p>
                 <p>Tipo de Material: {this.props.item.tipodeMaterial}</p>
             </div>
-            <input className="btn w-75 mx-auto mb-2 btn-outline-success" type="submit" value="Comprar"/>
-        </div>   
+            <input type="button" onClick={(e) => this.props.click(this.props.item)} class="btn btn-primary" className="btn w-75 mx-auto mb-2 btn-outline-success" type="submit" value="Comprar"/>
+        </div>
       </div>
     );
   }
