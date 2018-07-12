@@ -7,7 +7,7 @@ class DetailedItem extends Component {
         this.state = {
             quantidade:this.props.item.quantidade
         }
-        console.log(this.props)
+        // console.log(this.props)
     }
 
     handleInputChange = (valor) => {
@@ -16,22 +16,33 @@ class DetailedItem extends Component {
         }
     }
 
+    handleComprar = () => {
+      alert("Parabens você comprou")
+    }
+
     render() {
       return (
-        <div  className="DetailedItem mt-5">
+        <div  className="DetailedItem pt-5">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title text-center">{this.props.item.nome}</h5>
+                <h2 class="card-title text-center">{this.props.item.nome}</h2>
                 <div class="form-inline">
-                  <div class="form-group mb-3">
-                    <label className="pr-2">Quantidade: </label>
+                  <div class="form-group mb-1">
+                    <h5 className="pr-2">Quantidade: </h5>
                     <input type="number" lass="form-control mx-sm-3" value={this.state.quantidade} onChange={e => this.handleInputChange(e.target.value)}/>
                   </div>
                 </div>
-                  <p>Estação Fornecedora: {this.props.item.fornecedor}</p>
-                  <p>Tipo de Material: {this.props.item.tipodeMaterial}</p>
+                  <h5 className="mb-2">Estação Fornecedora: {this.props.item.fornecedor}</h5>
+                  <h5>Tipo de Material: {this.props.item.tipodeMaterial}</h5>
                 </div>
-                <button className="btn btn-secondary" onClick={this.props.anular()}>Voltar</button>
+                <div className="col-12 ">
+                  <div className="container mb-2">
+                    <div className="row justify-content-between">
+                      <input onClick={() => this.props.anular(undefined)}     type="submit" value="Voltar" className="btn   align-self-start col-4  btn-secondary"/>
+                      <input onClick={() => this.handleComprar()}    type="submit" value="Comprar" className="btn    align-self-end col-4  btn-success"/>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
       );

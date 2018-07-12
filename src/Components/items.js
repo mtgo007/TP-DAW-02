@@ -18,12 +18,8 @@ class Items extends Component {
     }
 
     showModal=(item)=>{
-        console.log(item)
+        // console.log(item)
         this.setState({selectedItem:item})
-    }
-
-    anular = () =>{
-        this.setState({selectedItem:undefined})
     }
 
     search = (search) => {
@@ -47,10 +43,11 @@ class Items extends Component {
 
     
     render() {
+        console.log(this.state.selectedItem)
         if(this.state.selectedItem){
             return(
                 <div className="Items  col-10 mx-auto">    
-                    <DetailedItem anular={this.anular} item={this.state.selectedItem}/>
+                    <DetailedItem anular={this.showModal} item={this.state.selectedItem}/>
                 </div>
             );
         } else {

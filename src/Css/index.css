@@ -14,7 +14,6 @@ body {
 }
 .vh{
   height: 100vh !important;
-  max-height: 100vh;
 }
 .h100{
   height: 100%;

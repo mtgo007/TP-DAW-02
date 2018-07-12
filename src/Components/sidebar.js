@@ -48,12 +48,14 @@ class Sidebar extends Component {
                 <i class="fas fa-info-circle mr-1"></i>
                 Notificações</li>
             </ul>
-            <ul className="list-group bg-success mb-3 footer">
-                <li className="list-group-item list-group-item-action   "
-                onClick={()=>{this.props.changeState(0, undefined)}}
-                >
-                Sair</li>
-            </ul>
+            <div className="d-flex align-items-end flex-column">
+                <ul className="list-group mb-3 fixed-bottom col-2">
+                    <li className="list-group-item list-group-item-action   "
+                    onClick={()=>{this.props.changeState(0, undefined)}}
+                    >
+                    Sair</li>
+                </ul>
+            </div>
         </div>
       </div>
     );
