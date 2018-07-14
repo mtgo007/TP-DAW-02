@@ -53,6 +53,7 @@ class Sidebar extends Component {
                     <li className="list-group-item list-group-item-action   "
                     onClick={()=>{this.props.changeState(0, undefined)}}
                     >
+                    <i class="fas fa-sign-out-alt mr-1"></i>
                     Sair</li>
                 </ul>
             </div>

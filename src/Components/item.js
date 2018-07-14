@@ -11,7 +11,7 @@ class Item extends Component {
     return (
       <div  className="Item mt-5 col-3 ">
         <div className="card">
-            <h3 className="text-center">{this.props.item.nome}</h3>
+            <h3 className="text-center pt-1">{this.props.item.nome}</h3>
             <div className="container">
                 <p>Quantidade: {this.props.item.quantidade}Kg</p>
                 <p>Estação Fornecedora: {this.props.item.fornecedor}</p>

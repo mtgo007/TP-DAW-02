@@ -26,7 +26,7 @@ body {
   display: block;
 }
 .background{
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  position: fixed; /* Fixed Background (stay in place on scroll) */
   width:83.34%;
   height: 100vh;
   z-index: -1;

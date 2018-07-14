@@ -31,6 +31,7 @@ class DetailedItem extends Component {
                     <h5 className="pr-2">Quantidade: </h5>
                     <input type="number" lass="form-control mx-sm-3" value={this.state.quantidade} onChange={e => this.handleInputChange(e.target.value)}/>
                   </div>
+                  <small className="text-muted pl-2">max: {this.props.item.quantidade}Kg</small>
                 </div>
                   <h5 className="mb-2">Estação Fornecedora: {this.props.item.fornecedor}</h5>
                   <h5>Tipo de Material: {this.props.item.tipodeMaterial}</h5>
