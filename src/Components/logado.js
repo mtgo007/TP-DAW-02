@@ -9,7 +9,7 @@ class Logado extends Component {
   constructor(props){
     super(props);
     this.state = {
-        atual:2
+        atual:0
     }
   }
 

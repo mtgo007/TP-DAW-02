@@ -8,7 +8,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      atual: 2,
+      atual: 0,
       usuarioLogado:{
         nome:"Mathias",
         email:"mtgo@mtgo.com",
