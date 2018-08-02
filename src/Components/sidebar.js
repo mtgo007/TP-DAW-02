@@ -8,6 +8,7 @@ class Sidebar extends Component {
          usuario:this.props.usuarioLogado,
          option: 1
      }
+     console.log(this.props.usuarioLogado)
    }
 
    alteraAtivo = () => {

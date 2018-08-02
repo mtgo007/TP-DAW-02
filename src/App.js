@@ -9,20 +9,14 @@ class App extends Component {
     super();
     this.state = {
       atual: 0,
-      usuarioLogado:{
-        nome:"Mathias",
-        email:"mtgo@mtgo.com",
-        endereco: "Rua da Bahia",
-        telefone:"3194799570",
-        tipoUsuario:"Comprador"
-      }
+      usuarioLogado:{}
     }
   }
 
   changeState(estado, usuario){
-    console.log(estado)
-    this.setState({atual:estado});
+    // console.log(estado)
     this.setState({usuarioLogado:usuario});
+    this.setState({atual:estado});
   }
 
   render() {
