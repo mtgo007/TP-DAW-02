@@ -18,7 +18,6 @@ class Logado extends Component {
   }
 
   render() {
-      console.log('this.props.usuarioLogado')
     return (
       <div  className="Logado" >
         <div  className="row no-gutters">

@@ -43,7 +43,6 @@ class Items extends Component {
 
     
     render() {
-        console.log(this.state.selectedItem)
         if(this.state.selectedItem){
             return(
                 <div className="Items  col-10 mx-auto">    

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 class FormAdd extends Component {
 
@@ -10,29 +11,36 @@ class FormAdd extends Component {
           senha:this.props.user.senha||'',
           endereco:this.props.user.endereco||'',
           telefone:this.props.user.telefone||'',
-          tipoUsuario:this.props.user.tipoUsuario||'Comprador'
+          tipoUsuario:this.props.user.tipoUsuario||'company'
       }
   }
 
   add(){
       let user = {
-        nome:this.state.nome,
+        name:this.state.nome,
         email:this.state.email,
-        senha:this.state.senha,
-        endereco:this.state.endereco,
-        telefone:this.state.telefone,
-        tipoUsuario:this.state.tipoUsuario
+        password:this.state.senha,
+        address:this.state.endereco,
+        telephone:this.state.telefone,
+        role:this.state.tipoUsuario
       }
+      let atual = this;
       // Verficar com o Back a adição do Usuario
       //mudar o estado
-      console.log(user);
-      if(user.nome && user.email && user.senha && user.endereco && user.telefone){
-          this.props.changeState(0, user);
+      if(user.name && user.email && user.password && user.address && user.telephone){
+        axios.post('/api/v1/register', user)
+          .then(function (res) {
+            if(res.status === 200){
+              atual.props.changeState(0, user);
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
   }
 
   render() {
-    console.log(this.props.user)
     return (
       <div  className="FormAdd mt-5 container jumbotron">
         <div className="form-group">
@@ -58,9 +66,8 @@ class FormAdd extends Component {
         <div className="form-group">
             <p className="text-center" >Tipo de Usuário</p>
             <select className="custom-select mr-sm-2" value={this.state.tipoUsuario} onChange={(event)=>this.setState({tipoUsuario:event.target.value})}>
-              <option >Comprador</option>
-              <option >Estação de Coleta</option>
-              <option >Catador</option>
+              <option >company</option>
+              <option >station</option>
             </select>
         </div>
         <button type="submit" className="w-100 btn btn-outline-success" onClick={this.add.bind(this)}>
