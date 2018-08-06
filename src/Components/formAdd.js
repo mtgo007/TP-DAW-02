@@ -11,11 +11,16 @@ class FormAdd extends Component {
           senha:this.props.user.senha||'',
           endereco:this.props.user.endereco||'',
           telefone:this.props.user.telefone||'',
-          tipoUsuario:this.props.user.tipoUsuario||'company'
+          tipoUsuario:this.props.user.tipoUsuario||'company',
+          loading:"",
+          success:0,
+          message:""
       }
   }
 
   add(){
+    this.props.changeBackground("spinner-1");
+    this.setState({loading:"background-loading"})
       let user = {
         name:this.state.nome,
         email:this.state.email,
@@ -31,18 +36,41 @@ class FormAdd extends Component {
         axios.post('/api/v1/register', user)
           .then(function (res) {
             if(res.status === 200){
-              atual.props.changeState(0, user);
+          atual.setState({success:1}, ()=>{
+              atual.setState({message:"Usuário Adicionado Com Sucesso"});
+              atual.props.changeBackground("");
+              atual.setState({loading:""})
+              });
+              setTimeout(()=>{
+                atual.props.changeState(0, user);
+              },3000)
             }
           })
           .catch(function (error) {
             console.log(error);
+            atual.props.changeBackground("");
+            atual.setState({success:0}, ()=>{
+              atual.setState({message:"*Dados Invalidos"})
+            });
+            setTimeout(()=>{
+              atual.setState({message:""})
+            },2000);
           });
+      } else{
+        this.props.changeBackground("");
+        this.setState({loading:""})
+        this.setState({success:0}, ()=>{
+          this.setState({message:"*Campos Nulos"})
+        });
+        setTimeout(()=>{
+          this.setState({message:""})
+        },2000);
       }
   }
 
   render() {
     return (
-      <div  className="FormAdd mt-5 container w-75 mx-auto jumbotron">
+      <div  className={`FormAdd mt-5 container w-75 mx-auto jumbotron ${this.state.loading}`}>
         <div className="form-group">
           <p className="text-center" >Nome</p>
           <input type="name" class="form-control"    placeholder="Nome" value={this.state.nome} onChange={(event)=>this.setState({nome:event.target.value})} />
@@ -70,6 +98,7 @@ class FormAdd extends Component {
               <option >station</option>
             </select>
         </div>
+        <p className={`text-center ${this.state.success===0 ? "text-danger" : "text-success"}`}>{this.state.message}</p>
         <button type="submit" className="w-100 btn btn-outline-success" onClick={this.add.bind(this)}>
           {this.props.btnText}
         </button>
