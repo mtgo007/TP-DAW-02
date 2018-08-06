@@ -42,7 +42,7 @@ class FormAdd extends Component {
 
   render() {
     return (
-      <div  className="FormAdd mt-5 container jumbotron">
+      <div  className="FormAdd mt-5 container w-75 mx-auto jumbotron">
         <div className="form-group">
           <p className="text-center" >Nome</p>
           <input type="name" class="form-control"    placeholder="Nome" value={this.state.nome} onChange={(event)=>this.setState({nome:event.target.value})} />

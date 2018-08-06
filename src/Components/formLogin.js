@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 class FormLogin extends Component {
 
-  constructor(){
-      super();
+  constructor(props){
+      super(props);
       this.state = {
         email: '',
-        senha:''
+        senha:'',
+        erroMensage:this.props.erroMensage
       }
   }
 
@@ -27,12 +28,19 @@ class FormLogin extends Component {
       const senha = this.state.senha;
       if(email && senha){
           this.props.login(email, senha);
+      } else{
+
+        let atual = this;
+        this.setState({erroMensage:"*Campos Nulos"});
+        setTimeout(()=>{
+          atual.setState({erroMensage:""});
+        },2000)
       }
   }
 
   render() {
     return (
-      <div className="FormLogin">
+      <div className={`FormLogin w-50 mx-auto ${this.props.classeLogin}`}>
       <div className="container jumbotron mt-5">
           <div className="form-group">
             <p className="text-center">Email</p>
@@ -43,6 +51,7 @@ class FormLogin extends Component {
             <input type="password" className="form-control"   id="exampleInputPassword1" id="password" placeholder="Senha" 
             value={this.state.senha} onChange={this.handleSenhaChange.bind(this)}/>
           </div>
+          <p className="text-center mt-2 rounded text-danger">{this.state.erroMensage ? this.state.erroMensage : this.props.erroMensage}</p>
           <button type="submit" className="w-100 btn btn-success" onClick={this.autentica.bind(this)}>Logar</button>
           <button type="submit" className="w-100 mt-2 btn btn-outline-success" onClick={this.handleAdd.bind(this)}>Cadastre-se</button>
         </div>

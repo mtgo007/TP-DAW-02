@@ -5,7 +5,19 @@ import axios from 'axios'
 
 
 class Login extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:"",
+      background:"",
+      erromensage:""
+    }
+  }
+
   login = (email, senha)=>{
+    this.setState({loading:" spinner-1"});
+    this.setState({background:" background-loading"});
+    let atual = this;
     let usuario = {
       nome:"Mathias",
       email:"mtgo@mtgo.com",
@@ -22,10 +34,18 @@ class Login extends Component {
     .then(function (res) {
       if(res.status === 200){
         login.props.changeState(2, usuario)
+        atual.setState({loading:""});
+        atual.setState({background:""});
       }
     })
     .catch(function (error) {
       console.log(error);
+      atual.setState({loading:""});
+      atual.setState({background:""});
+      atual.setState({erromensage:"*Usuario ou Senha Invalidos"})
+      setTimeout(()=>{
+        atual.setState({erromensage:""})
+      },2000);
     });
     // if(email == "mathias" && senha == "123"){
     //   this.props.changeState(2, email);
@@ -36,9 +56,9 @@ class Login extends Component {
 
   render() {
     return (
-      <div  className="Login">
+      <div  className={`Login ${this.state.loading}`}>
         <Navbar changeState={this.props.changeState.bind(this)}/>
-        <FormLogin  changeState={this.props.changeState} login={this.login.bind(this)}/>
+        <FormLogin erroMensage={this.state.erromensage} classeLogin={this.state.background} changeState={this.props.changeState} login={this.login.bind(this)}/>
       </div>
     );
   }
