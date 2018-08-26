@@ -37,7 +37,11 @@ class FormLogin extends Component {
         },2000)
       }
   }
-
+   bgImage(props) {
+    const imageUrl = require(`./public${props.back}.jpg`)
+    return <div style={{ backgroundImage: `url(${imageUrl})` }} />
+  }
+  
   render() {
     return (
       <div className={`FormLogin w-50 mx-auto ${this.props.classeLogin}`}>
@@ -53,7 +57,7 @@ class FormLogin extends Component {
           </div>
           <p className="text-center mt-2 rounded text-danger">{this.state.erroMensage ? this.state.erroMensage : this.props.erroMensage}</p>
           <button type="submit" className="w-100 btn btn-success" onClick={this.autentica.bind(this)}>Logar</button>
-          <button type="submit" className="w-100 mt-2 btn btn-outline-success" onClick={this.handleAdd.bind(this)}>Cadastre-se</button>
+          <button type="submit" className="w-100 mt-2 btn btn-outline-info" onClick={this.handleAdd.bind(this)}>Cadastre-se</button>
         </div>
       </div>
     );

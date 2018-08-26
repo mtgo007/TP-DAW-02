@@ -53,7 +53,7 @@ class Dashboard extends Component {
   render() {
     if(this.props.state === 0){
         return (
-            <div  className="Dashboard  h100"  >
+            <div  className="Dashboard  h100 cinza"  >
                 <Items token={this.props.user.token} items={this.state.items} />
             </div>
         );
@@ -66,7 +66,7 @@ class Dashboard extends Component {
     }
     else{
         return(
-            <div  className="Dashboard  h100"  >
+            <div  className="Dashboard  h10"  >
                 <Notificacoes />
             </div>
         );

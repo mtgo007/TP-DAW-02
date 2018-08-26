@@ -20,11 +20,11 @@ class Logado extends Component {
     return (
       <div  className="Logado" >
         <div  className="row no-gutters">
-            <div  className="col-sm-2">
+            <div  className="col-sm-3 ">
                 <Sidebar changeState={this.props.changeState} switchState={this.switchState}  usuarioLogado={this.props.usuarioLogado} />
             </div>
-            <div  className="col-sm-10 ">
-                <div className="background bg-dark"></div>
+            <div  className="col-sm-9 ">
+                <div className="background grad"></div>
                 <Dashboard  user={this.props.usuarioLogado} state={this.state.atual}/>
             </div> 
         </div>

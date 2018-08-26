@@ -50,12 +50,17 @@ class Login extends Component {
         atual.setState({erromensage:""})
       },2000);
     });
-    // if(email == "mathias" && senha == "123"){
-    //   this.props.changeState(2, email);
-    // } else {
-    //   console.log('erro');
-    // }
+
+///// Lembrar login
+
+    if(email == "italo" && senha == "123"){
+      this.props.changeState(2, email);
+    } else {
+      console.log('erro');
+    }
   }
+////////////
+
 
   render() {
     return (
