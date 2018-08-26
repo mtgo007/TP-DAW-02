@@ -6,7 +6,7 @@ class Notificacao extends Component {
     return (
       <div  className="Notificacao mt-5 container">
         <div class="card ">
-          <h5 class="card-header text-center">Entrega</h5>
+          <h5 class="card-header text-center activeEntregue text-white ">Entrega</h5>
           <div class="card-body">
             <h5 class="card-title">Enterga do Material: Plastico</h5>
             <p class="card-text">A entrega de 25KG de plastico ja foi despachada</p>

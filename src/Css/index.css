@@ -4,12 +4,12 @@ body {
   font-family: sans-serif;
 }
 .active{
-  background-color: #28a745 !important;
-  border-color: #1c7932 !important;
+  background-color: #20bbfc !important;
+  border-color: #fff !important;
 }
 .sidenav {
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  width:16.66%;
+  width:24.99%;
   /* overflow-x: hidden; Disable horizontal scroll */
 }
 .vh{
@@ -27,9 +27,11 @@ body {
 }
 .background{
   position: fixed; /* Fixed Background (stay in place on scroll) */
-  width:83.34%;
+  width:75.01%;
   height: 100vh;
   z-index: -1;
+  background-color: #ECECEC  !important;   
+
 }
 
 .background-loading{
@@ -50,6 +52,25 @@ body {
   border-top-color: #28a745;
   animation: spinner 0.7s linear infinite;
 }
+
+.activeEntregue{
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.bgdashboard {
+  background-color: #384649 !important;
+}
+.cinza{
+  background-color: #ECECEC !important;   
+}
+
+.green{
+  background-color: #008000!important;
+}
+
+
+
 @keyframes spinner {
   to {
     transform: rotate(360deg);

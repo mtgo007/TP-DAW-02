@@ -8,9 +8,10 @@ class Notificacoes extends Component {
     for(let i = 0;i<10;i++){
         output.push(<Notificacao />);
     }
+    
     return (
       <div  className="Notificacoes">
-        <h2 className="text-center mt-2 text-light">Notificações</h2>
+        <h2 className="text-center mt-2 text-black">Notificações</h2>
         {output}
       </div>
     );
