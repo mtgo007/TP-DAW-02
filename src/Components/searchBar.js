@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SerachBar extends Component {
 
@@ -7,6 +8,18 @@ class SerachBar extends Component {
         this.state={
             search:''
         }
+    }
+
+    componentWillMount(){
+      console.log(`bearer ${this.props.token}`);
+      axios.get("/api/v1/types",{},{
+        headers:{
+             "Content-Type": "application/json",
+            "Authorization": `bearer ${this.props.token}`
+        }
+    })
+     .then(res => console.log(res))
+     .catch(e => console.log(e))
     }
 
     handlesearch = () => {
@@ -21,8 +34,9 @@ class SerachBar extends Component {
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-search"></i></span>
           </div>
-          <input type="text" value={this.state.search} onChange={
-              (e)=> {this.state.search=e.target.value; this.handlesearch()}} class="form-control" placeholder="Search" aria-label="Large" aria-describedby="inputGroup-sizing-sm"/>
+          <select class="form-control" id="exampleFormControlSelect1">
+            {this.state.tipos}
+          </select>
         </div>
       </div>
     );

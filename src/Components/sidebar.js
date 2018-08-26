@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Sidebar extends Component {
 
@@ -8,7 +9,21 @@ class Sidebar extends Component {
          usuario:this.props.usuarioLogado,
          option: 1
      }
-     console.log(this.props.usuarioLogado)
+    //  console.log(this.props.usuarioLogado)
+   }
+
+   sair = () =>{
+       console.log(`bearer ${this.state.usuario.token}`);
+       axios.post("/api/v1/user/logout",{},{
+           headers:{
+                "Content-Type": "application/json",
+               "Authorization": `bearer ${this.state.usuario.token}`
+           }
+       })
+        .then(res => console.log(res.status))
+        .catch(e => console.log(e))
+       this.props.changeState(0, undefined);
+    
    }
 
    alteraAtivo = () => {
@@ -52,7 +67,7 @@ class Sidebar extends Component {
             <div className="d-flex align-items-end flex-column">
                 <ul className="list-group mb-3 fixed-bottom col-2">
                     <li className="list-group-item list-group-item-action   "
-                    onClick={()=>{this.props.changeState(0, undefined)}}
+                    onClick={()=>{this.sair()}}
                     >
                     <i class="fas fa-sign-out-alt mr-1"></i>
                     Sair</li>

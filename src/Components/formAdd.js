@@ -51,6 +51,7 @@ class FormAdd extends Component {
             atual.props.changeBackground("");
             atual.setState({success:0}, ()=>{
               atual.setState({message:"*Dados Invalidos"})
+              atual.setState({loading:""})
             });
             setTimeout(()=>{
               atual.setState({message:""})

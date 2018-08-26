@@ -53,7 +53,7 @@ class Items extends Component {
         
             return (
                 <div className="Items  col-10 mx-auto">    
-                    <SearchBar search={this.search} />
+                    <SearchBar token={this.props.token} search={this.search} />
                     <div  className=" row">
                         {this.state.items}
                     </div>

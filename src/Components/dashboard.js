@@ -54,7 +54,7 @@ class Dashboard extends Component {
     if(this.props.state === 0){
         return (
             <div  className="Dashboard  h100"  >
-                <Items items={this.state.items} />
+                <Items token={this.props.user.token} items={this.state.items} />
             </div>
         );
     } else if(this.props.state === 1){

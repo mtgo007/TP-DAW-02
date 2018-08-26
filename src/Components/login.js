@@ -18,13 +18,6 @@ class Login extends Component {
     this.setState({loading:" spinner-1"});
     this.setState({background:" background-loading"});
     let atual = this;
-    let usuario = {
-      nome:"Mathias",
-      email:"mtgo@mtgo.com",
-      endereco: "Rua da Bahia",
-      telefone:"3194799570",
-      tipoUsuario:"Comprador"
-    }
     let login = this
     // handle pega dados do usuario
     axios.post('/api/v1/login', {
@@ -33,7 +26,17 @@ class Login extends Component {
     })
     .then(function (res) {
       if(res.status === 200){
-        login.props.changeState(2, usuario)
+        console.log(res)
+        let user = {
+          id:res.data.data.user.id,
+          nome: res.data.data.user.name,
+          email:res.data.data.user.email,
+          endereco: res.data.data.user.address,
+          tipoUsuario:res.data.data.user.role[0],
+          telefone:res.data.data.user.telephone,
+          token:res.data.data.token.original.access_token
+        }
+        login.props.changeState(2, user)
         atual.setState({loading:""});
         atual.setState({background:""});
       }
