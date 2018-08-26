@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../Css/login.css'
 
 class FormLogin extends Component {
 
@@ -40,7 +41,7 @@ class FormLogin extends Component {
 
   render() {
     return (
-      <div className={`FormLogin w-50 mx-auto ${this.props.classeLogin}`}>
+      <div className={`FormLogin w-50 mx-auto ${this.props.classeLogin} login`}>
       <div className="container jumbotron mt-5">
           <div className="form-group">
             <p className="text-center">Email</p>
@@ -48,7 +49,7 @@ class FormLogin extends Component {
           </div>
           <div className="form-group">
             <p className="text-center">Senha</p>
-            <input type="password" className="form-control"   id="exampleInputPassword1" id="password" placeholder="Senha" 
+            <input type="password" className="form-control"   id="exampleInputPassword1" id="password" placeholder="Senha"
             value={this.state.senha} onChange={this.handleSenhaChange.bind(this)}/>
           </div>
           <p className="text-center mt-2 rounded text-danger">{this.state.erroMensage ? this.state.erroMensage : this.props.erroMensage}</p>
