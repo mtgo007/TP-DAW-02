@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-let options = [<option></option>];
+let options = [];
 let tipos = [];
 
 class SerachBar extends Component {
@@ -9,12 +9,14 @@ class SerachBar extends Component {
         super();
         this.state={
             search:0,
-            tipos:[]
+            tipos:[],
+            options:[<option></option>]
         }
     }
 
     componentWillMount(){
       let atual = this;
+      options = [<option></option>];
       console.log(`Bearer ${this.props.token}`);
       fetch('/api/v1/types', {
         method: 'GET',
@@ -31,6 +33,9 @@ class SerachBar extends Component {
         for(let tipo of res.data){
           tipos.push(tipo.type);
           options.push((<option>{tipo.type}</option>));
+        }
+        if(this.state.options.length!=options.length){
+          this.setState({options:options})
         }
         atual.setState({tipos:tipos});
         this.props.setTipos(tipos);
@@ -55,7 +60,7 @@ class SerachBar extends Component {
             <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-search"></i></span>
           </div>
           <select onChange={(event)=>this.handlesearch(event.target.value)} class="form-control" id="exampleFormControlSelect1">
-            {options}
+            {this.state.options}
           </select>
         </div>
       </div>
