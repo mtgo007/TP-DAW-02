@@ -72,7 +72,7 @@ class Sidebar extends Component {
                 Notificações</li> */}
                 {add}
             </ul>
-            <div className="d-flex align-items-end flex-column">
+            <div className="d-flex mr-2 align-items-end flex-column">
                 <ul className="list-group mb-3 fixed-bottom col-3">
                     <li className="list-group-item list-group-item-action "
                     onClick={()=>{this.sair()}}

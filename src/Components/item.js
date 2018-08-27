@@ -36,7 +36,7 @@ class Item extends Component {
             <div className="container">
                 <p>Quantidade: {this.props.item.quantity}Kg</p>
                 <p>Tipo de Material: {this.state.tipo}</p>
-                <p>Preço: {this.props.item.price}</p>
+                <p>Preço: R${this.props.item.price}</p>
             </div>
             <input type="button" onClick={(e) => this.props.click({quantidade:this.props.item.quantity,tipodeMaterial:tipo,id:this.props.item.id,preco:this.props.item.price})} class="btn btn-primary" className="btn w-75 mx-auto mb-2 btn-outline-success" type="submit" value={this.props.action}/>
         </div>

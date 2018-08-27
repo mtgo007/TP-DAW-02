@@ -71,38 +71,43 @@ class FormAdd extends Component {
 
   render() {
     return (
-      <div  className={`FormAdd mt-5 container w-75 mx-auto jumbotron ${this.state.loading}`}>
-        <div className="form-group">
-          <p className="text-center" >Nome</p>
+      <div  className={`FormAdd mt-5 mx-auto ${this.state.loading}`}>
+      <div className="shadow-lg p-3 mb-5 bg-white mt-5 container signUp-form">
+      <div className="form-group">
+          <label>Nome</label>
           <input type="name" class="form-control"    placeholder="Nome" value={this.state.nome} onChange={(event)=>this.setState({nome:event.target.value})} />
         </div>
         <div className="form-group">
-          <p className="text-center" >Email</p>
+          <label>Email</label>
           <input type="email" class="form-control"    placeholder="Email" value={this.state.email} onChange={(event)=>this.setState({email:event.target.value})}/>
         </div>
+        <div className="form-row">
+          <div className="col">
+            <label>Telefone</label>
+            <input type="tel" className="form-control"    placeholder="Telefone" value={this.state.telefone} onChange={(event)=>this.setState({telefone:event.target.value})}/>
+          </div>
+          <div className="col">
+              <label>Tipo de Usuário</label>
+              <select className="custom-select mr-sm-2" value={this.state.tipoUsuario} onChange={(event)=>this.setState({tipoUsuario:event.target.value})}>
+                <option >company</option>
+                <option >station</option>
+              </select>
+          </div>
+        </div>
         <div className="form-group">
-          <p className="text-center" >Senha</p>
+          <label>Senha</label>
           <input type="password" className="form-control"    placeholder="Senha" value={this.state.senha} onChange={(event)=>this.setState({senha:event.target.value})}/>
         </div>
         <div className="form-group">
-          <p className="text-center" >Endereço</p>
+          <label>Endereço</label>
           <input type="text" className="form-control"    placeholder="Endereço" value={this.state.endereco} onChange={(event)=>this.setState({endereco:event.target.value})}/>
         </div>
-        <div className="form-group">
-          <p className="text-center" >Telefone</p>
-          <input type="tel" className="form-control"    placeholder="Telefone" value={this.state.telefone} onChange={(event)=>this.setState({telefone:event.target.value})}/>
-        </div>
-        <div className="form-group">
-            <p className="text-center" >Tipo de Usuário</p>
-            <select className="custom-select mr-sm-2" value={this.state.tipoUsuario} onChange={(event)=>this.setState({tipoUsuario:event.target.value})}>
-              <option >company</option>
-              <option >station</option>
-            </select>
-        </div>
-        <p className={`text-center ${this.state.success===0 ? "text-danger" : "text-success"}`}>{this.state.message}</p>
+        
+        <label className={`text-center ${this.state.success===0 ? "text-danger" : "text-success"}`}>{this.state.message}</label>
         <button type="submit" className="w-100 btn btn-outline-success" onClick={this.add.bind(this)}>
           {this.props.btnText}
         </button>
+      </div>
       </div>
     );
   }

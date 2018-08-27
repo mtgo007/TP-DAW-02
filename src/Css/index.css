@@ -7,6 +7,12 @@ body {
   background-color: #20bbfc !important;
   border-color: #fff !important;
 }
+
+html, body, .App, .Login, #root, .Add {
+  height: 100%;
+}
+
+
 .sidenav {
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   width:24.99%;

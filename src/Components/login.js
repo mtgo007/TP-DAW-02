@@ -64,7 +64,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div  className={`Login ${this.state.loading}`}>
+      <div  className={`Login ${this.state.loading} login`}>
         <Navbar changeState={this.props.changeState.bind(this)}/>
         <FormLogin erroMensage={this.state.erromensage} classeLogin={this.state.background} changeState={this.props.changeState} login={this.login.bind(this)}/>
       </div>

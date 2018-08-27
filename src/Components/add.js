@@ -17,7 +17,7 @@ class Add extends Component {
 
   render() {
     return (
-      <div  className={`Add ${this.state.spinner}`}>
+      <div  className={`Add ${this.state.spinner} signUp`}>
         <Navbar changeState={this.props.changeState.bind(this)}/>
         <FormAdd changeBackground={this.changeBackground} user={{}} btnText='Cadastrar' changeState={this.props.changeState.bind(this)} />
       </div>
