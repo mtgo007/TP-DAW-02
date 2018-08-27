@@ -31,8 +31,8 @@ class AddSell extends Component {
           "Authorization": `bearer ${this.props.token}`
         },
         body: JSON.stringify({
-          "price": parseInt(this.state.preco),
-          "quantity": parseInt(this.state.quantidade),
+          "price": parseFloat(this.state.preco),
+          "quantity": parseFloat(this.state.quantidade),
           "type_id": parseInt(index+1),
           "station_id": (this.props.id)
         }),
@@ -58,8 +58,8 @@ class AddSell extends Component {
           <input value={this.state.preco} onChange={(event)=>this.setState({preco:event.target.value})} type="number" class="form-control"    placeholder="Preço"/>
         </div>
         <div className="form-group">
-          <p className="text-center" >Quantidade</p>
-          <input value={this.state.quantidade} onChange={(event)=>this.setState({quantidade:event.target.value})} type="number" class="form-control"    placeholder="Quantidade"/>
+          <p className="text-center" >Quantidade Kg</p>
+          <input value={this.state.quantidade} onChange={(event)=>this.setState({quantidade:event.target.value})} type="number" class="form-control"    placeholder="Quantidade em Kg"/>
         </div>
         <button onClick={this.handleAdd} type="submit col-2" class="btn btn-success float-right">Add Anúncio</button>
       </div>

@@ -106,7 +106,9 @@ class Items extends Component {
             let arr = this.state.items;
             for(let element of this.state.items){
                 if(element.id==id){
-                    arr.splice(element,1);
+                    let index = this.state.items.indexOf(element);
+                    arr.splice(index,1);
+                    console.log({index})
                 }
             }
             this.setState({items:arr});

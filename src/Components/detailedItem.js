@@ -67,6 +67,7 @@ class DetailedItem extends Component {
                   <div class="form-group mb-1">
                     <h5 className="pr-2">Quantidade: </h5>
                     <input disabled type="number" lass="form-control mx-sm-3" value={this.state.quantidade} onChange={e => this.handleInputChange(e.target.value)}/>
+                    <small className="ml-1">Kg</small>
                   </div>
                 </div>
                   <h5>Tipo de Material: {this.props.item.tipodeMaterial}</h5>
