@@ -1,0 +1,10 @@
+.signUp {
+    background-image: url('../assets/images/login.jpg');
+    background-size: cover;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .signUp-form {
+    height: 75%;
+    width: 350px;
+  }
+  
