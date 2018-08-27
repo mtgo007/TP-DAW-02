@@ -51,9 +51,9 @@ class Sidebar extends Component {
         Adicionar Sell</li>);
       }
     return (
-      <div  className="Sidebar sidenav" style={{height:'100vh'}}>
-        <div className="container-fluid bg-light h-100">
-            <h1 className="text-center pt-2 mb-5">Bem-vindo {this.state.usuario.nome}!</h1>
+      <div  className="Sidebar sidenav " style={{height:'100vh'}}>
+        <div className="container-fluid bg-light h-100 bgdashboard">
+            <h1 className="text-center pt-2 mb-5 text-white ">Bem-vindo {this.state.usuario.nome}!</h1>
             <ul className="list-group bg-success">
                 <li className="list-group-item list-group-item-action   active"
                 onClick={()=>{this.handleState(0)}}
@@ -73,8 +73,8 @@ class Sidebar extends Component {
                 {add}
             </ul>
             <div className="d-flex align-items-end flex-column">
-                <ul className="list-group mb-3 fixed-bottom col-2">
-                    <li className="list-group-item list-group-item-action   "
+                <ul className="list-group mb-3 fixed-bottom col-3">
+                    <li className="list-group-item list-group-item-action "
                     onClick={()=>{this.sair()}}
                     >
                     <i class="fas fa-sign-out-alt mr-1"></i>

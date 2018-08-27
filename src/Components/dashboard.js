@@ -35,7 +35,7 @@ class Dashboard extends Component {
     }
     else if(this.props.state === 2){
         return(
-            <div  className="Dashboard  h100"  >
+            <div  className="Dashboard  h10"  >
                 <Notificacoes />
             </div>
         );
