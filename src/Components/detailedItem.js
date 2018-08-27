@@ -72,7 +72,7 @@ class DetailedItem extends Component {
                 </div>
                   <h5>Tipo de Material: {this.props.item.tipodeMaterial}</h5>
                   <h5>Preço: {`R$${this.props.item.preco}`}</h5>
-                  <p className="text-center text-warning">{this.state.message}</p>
+                  <p className="text-center text-info">{this.state.message}</p>
                   <p className="text-center text-danger">{this.state.erro}</p>
                 </div>
                 <div className="col-12 ">

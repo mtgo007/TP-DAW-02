@@ -11,7 +11,7 @@ class FormAdd extends Component {
           senha:this.props.user.senha||'',
           endereco:this.props.user.endereco||'',
           telefone:this.props.user.telefone||'',
-          tipoUsuario:this.props.user.tipoUsuario||'company',
+          tipoUsuario:this.props.user.tipoUsuario||'Companhia',
           loading:"",
           success:0,
           message:""
@@ -27,7 +27,7 @@ class FormAdd extends Component {
         password:this.state.senha,
         address:this.state.endereco,
         telephone:this.state.telefone,
-        role:this.state.tipoUsuario
+        role:this.state.tipoUsuario=="Companhia"?"company":"station"
       }
       let atual = this;
       // Verficar com o Back a adição do Usuario
@@ -89,8 +89,8 @@ class FormAdd extends Component {
           <div className="col">
               <label>Tipo de Usuário</label>
               <select className="custom-select mr-sm-2" value={this.state.tipoUsuario} onChange={(event)=>this.setState({tipoUsuario:event.target.value})}>
-                <option >company</option>
-                <option >station</option>
+                <option >Companhia</option>
+                <option >Estação</option>
               </select>
           </div>
         </div>

@@ -34,11 +34,11 @@ class Item extends Component {
         <div className="card">
             <h3 className="text-center pt-1">{this.props.item.nome}</h3>
             <div className="container">
-                <p>Quantidade: {this.props.item.quantity}Kg</p>
                 <p>Tipo de Material: {this.state.tipo}</p>
+                <p>Quantidade: {this.props.item.quantity}Kg</p>
                 <p>Preço: R${this.props.item.price}</p>
             </div>
-            <input type="button" onClick={(e) => this.props.click({quantidade:this.props.item.quantity,tipodeMaterial:tipo,id:this.props.item.id,preco:this.props.item.price})} class="btn btn-primary" className="btn w-75 mx-auto mb-2 btn-outline-success" type="submit" value={this.props.action}/>
+            <input type="button" onClick={(e) => this.props.click({quantidade:this.props.item.quantity,tipodeMaterial:tipo,id:this.props.item.id,preco:this.props.item.price})} class="btn btn-primary" className={`btn w-75 mx-auto mb-2 ${this.props.action=="Visualizar"?"btn-outline-info":"btn-outline-success"}`} type="submit" value={this.props.action}/>
         </div>
       </div>
     );

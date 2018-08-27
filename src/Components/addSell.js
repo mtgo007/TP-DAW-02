@@ -10,7 +10,9 @@ class AddSell extends Component {
     this.state={
       tipo:undefined,
       quantidade:0,
-      preco:0
+      preco:0,
+      mensage:"",
+      erro:""
     }
   }
 
@@ -22,6 +24,7 @@ class AddSell extends Component {
 
   handleAdd=() =>{
     if(this.state.tipo && this.state.preco && this.state.quantidade){
+      this.setState({mensage:"Adicionando Anúncio"});
       let index = this.props.tipos.indexOf(this.state.tipo);
       fetch('/api/v1/stationSells', {
         method: 'POST',
@@ -38,8 +41,22 @@ class AddSell extends Component {
         }),
       })
        .then(res => res.json())
-       .then(res => alert("Adição feita com Sucesso"))
-       .catch(e => console.log(e))
+       .then(res => {
+        this.state.preco = 0;
+        this.state.quantidade = 0;
+         this.setState({mensage:""});
+         alert("Adição feita com Sucesso")
+       })
+       .catch(e => {
+        this.setState({mensage:""});
+        this.setState({erro:"Anúncio não adicionado"});
+        setTimeout(()=>{erro:""},2000);
+         console.log(e)
+       })
+    } else {
+      let atual = this;
+      this.setState({erro:"Campos Nulos"});
+      setTimeout(()=>atual.setState({erro:""}),2000);
     }
   }
 
@@ -55,12 +72,20 @@ class AddSell extends Component {
         </div>
         <div className="form-group">
           <p className="text-center" >Preço</p>
-          <input value={this.state.preco} onChange={(event)=>this.setState({preco:event.target.value})} type="number" class="form-control"    placeholder="Preço"/>
+          <input value={this.state.preco} onChange={(event)=>{
+            if(event.target.value>-1){
+            this.setState({preco:event.target.value})}
+            }} type="number" class="form-control"    placeholder="Preço"/>
         </div>
         <div className="form-group">
           <p className="text-center" >Quantidade Kg</p>
-          <input value={this.state.quantidade} onChange={(event)=>this.setState({quantidade:event.target.value})} type="number" class="form-control"    placeholder="Quantidade em Kg"/>
+          <input value={this.state.quantidade} onChange={(event)=>{
+            if(event.target.value>-1){
+            this.setState({quantidade:event.target.value})}
+            }} type="number" class="form-control"    placeholder="Quantidade em Kg"/>
         </div>
+        <p className="text-center text-info">{this.state.mensage}</p>
+        <p className="text-center text-danger">{this.state.erro}</p>
         <button onClick={this.handleAdd} type="submit col-2" class="btn btn-success float-right">Add Anúncio</button>
       </div>
       </div>

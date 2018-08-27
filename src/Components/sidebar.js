@@ -48,7 +48,7 @@ class Sidebar extends Component {
         add = (<li className="list-group-item list-group-item-action   "
         onClick={()=>{this.handleState(1)}}
         ><i class="fas fa-plus mr-1"></i>
-        Adicionar Sell</li>);
+        Adicionar Anúncio</li>);
       }
     return (
       <div  className="Sidebar sidenav " style={{height:'100vh'}}>
