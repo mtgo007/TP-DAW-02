@@ -43,6 +43,13 @@ class Sidebar extends Component {
    }
 
   render() {
+      let add = ''
+      if(this.props.usuarioLogado.tipoUsuario=='station'){
+        add = (<li className="list-group-item list-group-item-action   "
+        onClick={()=>{this.handleState(1)}}
+        ><i class="fas fa-plus mr-1"></i>
+        Adicionar Sell</li>);
+      }
     return (
       <div  className="Sidebar sidenav" style={{height:'100vh'}}>
         <div className="container-fluid bg-light h-100">
@@ -53,16 +60,17 @@ class Sidebar extends Component {
                 >
                 <i class="fas mr-1 fa-align-justify"></i>
                 Dashboard</li>
-                <li className="list-group-item list-group-item-action   "
+                {/* <li className="list-group-item list-group-item-action   "
                 onClick={()=>{this.handleState(1)}}
                 >
                 <i class="fas mr-1 fa-user-alt"></i>
-                Perfil</li>
-                <li className="list-group-item list-group-item-action   "
+                Perfil</li> */}
+                {/* <li className="list-group-item list-group-item-action   "
                 onClick={()=>{this.handleState(2)}}
                 >
                 <i class="fas fa-info-circle mr-1"></i>
-                Notificações</li>
+                Notificações</li> */}
+                {add}
             </ul>
             <div className="d-flex align-items-end flex-column">
                 <ul className="list-group mb-3 fixed-bottom col-2">

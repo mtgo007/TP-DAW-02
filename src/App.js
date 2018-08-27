@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   changeState(estado, usuario){
+    console.log(usuario)
     // console.log(estado)
     this.setState({usuarioLogado:usuario});
     this.setState({atual:estado});
