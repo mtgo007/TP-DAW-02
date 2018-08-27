@@ -1,30 +1,50 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
+let options = [<option></option>];
+let tipos = [];
 
 class SerachBar extends Component {
 
     constructor(){
         super();
         this.state={
-            search:''
+            search:0,
+            tipos:[]
         }
     }
 
     componentWillMount(){
-      console.log(`bearer ${this.props.token}`);
-      axios.get("/api/v1/types",{},{
-        headers:{
-             "Content-Type": "application/json",
-            "Authorization": `bearer ${this.props.token}`
+      let atual = this;
+      console.log(`Bearer ${this.props.token}`);
+      fetch('/api/v1/types', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          "Authorization": `Bearer ${this.props.token}`
         }
-    })
-     .then(res => console.log(res))
-     .catch(e => console.log(e))
+      })
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res)
+        tipos = [];
+        for(let tipo of res.data){
+          tipos.push(tipo.type);
+          options.push((<option>{tipo.type}</option>));
+        }
+        atual.setState({tipos:tipos});
+        this.props.setTipos(tipos);
+        this.handlesearch();
+      })
+      .catch(e => console.log(e))
     }
 
-    handlesearch = () => {
+    handlesearch = (e) => {
       console.log(this.state.search)
-        this.props.search(this.state.search);
+      // let query = e.target.value;
+      console.log(e);
+        this.props.search(this.state.tipos.indexOf(e));
+        // this.props.handleTipos(tipos);
     }
 
   render() {
@@ -34,8 +54,8 @@ class SerachBar extends Component {
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-search"></i></span>
           </div>
-          <select class="form-control" id="exampleFormControlSelect1">
-            {this.state.tipos}
+          <select onChange={(event)=>this.handlesearch(event.target.value)} class="form-control" id="exampleFormControlSelect1">
+            {options}
           </select>
         </div>
       </div>
